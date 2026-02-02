@@ -3,433 +3,506 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz 19 Anos, Vanessa!</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
+    <title>Feliz 19 Anos, Vanessa! 🎂</title>
+    <!-- Fontes & Ícones -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    
+    <!-- Estilos com Design Moderno -->
     <style>
         :root {
-            --primary-color: #ff6b8b;
-            --secondary-color: #6a5af9;
-            --accent-color: #4ecdc4;
-            --romantic-color: #ff4081;
-            --gold-color: #ffd700;
-            --nineteen-color: #9c27b0;
+            --primary: #FF6B8B; /* Rosa moderno */
+            --secondary: #6A5AF9; /* Roxo vibrante */
+            --accent: #4ECDC4; /* Turquesa */
+            --gold: #FFD166; /* Dourado suave */
+            --dark: #1A1A2E; /* Azul escuro para fundo */
+            --light: #F8F9FA;
+            --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-            color: #f8f9fa;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--dark) 0%, #16213E 100%);
+            color: var(--light);
+            line-height: 1.6;
             overflow-x: hidden;
             min-height: 100vh;
         }
-        
-        .age-badge {
-            position: fixed; top: 20px; right: 20px;
-            background: linear-gradient(45deg, var(--nineteen-color), #e91e63);
-            color: white; font-size: 1.8rem; font-weight: bold;
-            width: 80px; height: 80px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            z-index: 1000; box-shadow: 0 5px 20px rgba(156, 39, 176, 0.5);
-            animation: rotate 10s infinite linear;
-            border: 3px solid var(--gold-color);
+
+        /* -------------------- SEÇÃO HERO (Cabeçalho) -------------------- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(ellipse at center, rgba(106, 90, 249, 0.15) 0%, transparent 70%);
         }
-        
-        .hero-section {
-            min-height: 100vh; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; text-align: center;
-            padding: 20px; position: relative; overflow: hidden;
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            opacity: 0.1;
+            filter: blur(60px);
+            top: 10%;
+            left: 10%;
         }
-        
+
         .hero-title {
-            font-family: 'Dancing Script', cursive; font-size: 6rem;
-            background: linear-gradient(to right, #ff6b8b, #ffd700, #4ecdc4, #9c27b0);
-            -webkit-background-clip: text; background-clip: text; color: transparent;
-            margin-bottom: 20px; text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            animation: pulse 2s infinite, glow 3s infinite alternate;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3.5rem, 10vw, 6rem);
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--gold), var(--accent));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease infinite;
         }
-        
-        .age-celebration {
-            font-size: 4rem; color: var(--nineteen-color); font-weight: bold;
-            margin: 20px 0; text-shadow: 0 0 20px rgba(156, 39, 176, 0.7);
-            animation: bounce 2s infinite;
+
+        @keyframes gradientShift {
+            0% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+            100% { background-position: 0% center; }
         }
-        
+
+        .age-badge {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            color: var(--gold);
+            margin: 1.5rem 0;
+            position: relative;
+            display: inline-block;
+        }
+
+        .age-badge::after {
+            content: 'anos';
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            position: absolute;
+            bottom: -1.8rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--accent);
+        }
+
         .hero-subtitle {
-            font-size: 1.8rem; margin-bottom: 40px; max-width: 800px;
-            line-height: 1.6; background: rgba(0, 0, 0, 0.5);
-            padding: 20px; border-radius: 15px; backdrop-filter: blur(10px);
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: #CCD6F6;
+            font-weight: 300;
         }
-        
-        .name-highlight { color: var(--gold-color); font-weight: 700; font-size: 2.2rem; }
-        
-        .floating-hearts {
-            position: absolute; width: 100%; height: 100%;
-            top: 0; left: 0; pointer-events: none; z-index: -1;
-        }
-        
-        .heart {
-            position: absolute; font-size: 24px; color: var(--primary-color);
-            opacity: 0.7; animation: float 6s ease-in-out infinite;
-        }
-        
-        .gallery-section {
-            padding: 80px 20px; background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 20px; margin: 40px auto; max-width: 1200px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px);
-        }
-        
-        .gallery-title {
-            text-align: center; font-family: 'Dancing Script', cursive; font-size: 4rem;
-            background: linear-gradient(to right, #ff6b8b, #9c27b0);
-            -webkit-background-clip: text; background-clip: text; color: transparent;
-            margin-bottom: 50px;
-        }
-        
-        .photo-gallery {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px; margin-top: 40px;
-        }
-        
-        .photo-item {
-            position: relative; border-radius: 20px; overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); transition: all 0.4s ease;
-            cursor: pointer; height: 300px;
-        }
-        
-        .photo-item:hover {
-            transform: translateY(-15px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-        }
-        
-        .photo-item img {
-            width: 100%; height: 100%; object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .photo-item:hover img { transform: scale(1.1); }
-        
-        .photo-caption {
-            position: absolute; bottom: 0; left: 0; width: 100%;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
-            color: white; padding: 15px; text-align: center;
-            font-weight: 600; font-size: 1.2rem;
-        }
-        
-        .photo-modal {
-            display: none; position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9);
-            z-index: 2000; justify-content: center; align-items: center;
-        }
-        
-        .modal-content { max-width: 90%; max-height: 90%; border-radius: 10px; overflow: hidden; }
-        .modal-content img { width: 100%; height: auto; display: block; }
-        
-        .close-modal {
-            position: absolute; top: 20px; right: 30px; color: white;
-            font-size: 40px; cursor: pointer; z-index: 2001;
-        }
-        
-        .interactive-btn {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border: none; padding: 15px 30px; border-radius: 50px;
-            color: white; font-weight: 600; font-size: 1.2rem;
-            transition: all 0.3s ease; margin: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .interactive-btn:hover {
-            transform: scale(1.08); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(255, 107, 139, 0.3);
         }
-        
-        .birthday-cake {
-            width: 250px; height: 250px; position: relative;
-            margin: 40px auto; cursor: pointer; transition: transform 0.3s ease;
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 139, 0.5);
+            letter-spacing: 1px;
         }
-        
-        .cake {
-            position: absolute; width: 220px; height: 100px;
-            background: linear-gradient(to bottom, #f8c291, #e58e26);
-            border-radius: 10px 10px 0 0; bottom: 0; left: 15px;
+
+        /* -------------------- GALERIA DE FOTOS -------------------- */
+        .gallery-section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
-        
-        .cake-top {
-            position: absolute; width: 240px; height: 50px;
-            background: linear-gradient(to bottom, #ff9ff3, #f368e0);
-            border-radius: 50%; bottom: 100px;
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--light);
+            position: relative;
         }
-        
-        .candle {
-            position: absolute; width: 12px; height: 50px;
-            background: linear-gradient(to bottom, #ff9f43, #ee5a24);
-            border-radius: 5px; bottom: 150px; left: 119px;
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
         }
-        
-        .flame {
-            position: absolute; width: 25px; height: 50px;
-            background: linear-gradient(to bottom, #ff9f43, #ff3838);
-            border-radius: 50% 50% 20% 20%; bottom: 200px; left: 112px;
-            animation: flicker 0.5s infinite alternate;
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
-        
+
+        .photo-card {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 3 / 4;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .photo-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(26, 26, 46, 0.95) 20%, transparent);
+            padding: 2rem 1.5rem 1.5rem;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .photo-card:hover .photo-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* -------------------- SEÇÃO DA MENSAGEM ESPECIAL -------------------- */
+        .message-section {
+            padding: 6rem 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .message-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 4rem;
+            border-radius: 30px;
+            background: linear-gradient(145deg, rgba(106, 90, 249, 0.1), rgba(255, 107, 139, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(78, 205, 196, 0.1) 0%, transparent 60%);
+            z-index: -1;
+        }
+
+        .message-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .secret-message {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            line-height: 1.3;
+            color: var(--light);
+            margin: 2.5rem 0;
+            padding: 2rem;
+            border-radius: 20px;
+            background: rgba(255, 209, 102, 0.1);
+            border: 1px solid rgba(255, 209, 102, 0.2);
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
+        }
+
+        .secret-message.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .secret-message::before,
+        .secret-message::after {
+            content: '"';
+            font-family: serif;
+            font-size: 4rem;
+            color: var(--gold);
+            position: absolute;
+            opacity: 0.5;
+        }
+
+        .secret-message::before {
+            top: 10px;
+            left: 20px;
+        }
+
+        .secret-message::after {
+            bottom: 10px;
+            right: 20px;
+        }
+
+        /* -------------------- RODAPÉ -------------------- */
         .footer {
-            text-align: center; padding: 30px; margin-top: 50px;
-            font-size: 1.2rem; color: rgba(255, 255, 255, 0.7);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #8892B0;
+            font-size: 0.95rem;
         }
-        
-        /* Animações */
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-        @keyframes float { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-30px) rotate(10deg); } }
-        @keyframes flicker { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.2); opacity: 0.8; } }
-        @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-        
-        /* Responsividade */
+
+        .footer-heart {
+            color: var(--primary);
+            margin: 0 5px;
+            animation: heartbeat 1.5s ease infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* -------------------- RESPONSIVIDADE -------------------- */
         @media (max-width: 768px) {
-            .hero-title { font-size: 3.5rem; }
-            .age-celebration { font-size: 2.5rem; }
-            .gallery-title { font-size: 2.8rem; }
-            .photo-gallery { grid-template-columns: repeat(2, 1fr); }
+            .hero-title { font-size: 3rem; }
+            .age-badge { font-size: 4rem; }
+            .photo-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .message-container { padding: 2rem; }
+            .secret-message { font-size: 2.2rem; padding: 1.5rem; }
         }
-        @media (max-width: 576px) {
-            .hero-title { font-size: 2.8rem; }
-            .age-celebration { font-size: 2rem; }
-            .gallery-title { font-size: 2.2rem; }
-            .photo-gallery { grid-template-columns: 1fr; }
-            .age-badge { width: 60px; height: 60px; font-size: 1.4rem; }
+
+        @media (max-width: 480px) {
+            .photo-grid { grid-template-columns: 1fr; }
+            .hero { padding: 1rem; }
+            .gallery-section, .message-section { padding: 4rem 1rem; }
         }
     </style>
 </head>
 <body>
-    <div class="age-badge">19</div>
-    
-    <section class="hero-section">
-        <div class="floating-hearts" id="hearts-container"></div>
-        
-        <h1 class="hero-title">Feliz 19 Anos, <span class="name-highlight">Vanessa</span>!</h1>
-        
-        <div class="age-celebration">
-            <i class="fas fa-birthday-cake me-3"></i>
-            19 ANOS
-            <i class="fas fa-birthday-cake ms-3"></i>
-        </div>
-        
-        <p class="hero-subtitle">Uma celebração especial para uma pessoa incrível! Cada detalhe aqui foi pensado para fazer do seu dia algo memorável!</p>
-        
-        <div class="birthday-cake" id="birthdayCake">
-            <div class="cake"></div>
-            <div class="cake-top"></div>
-            <div class="candle"></div>
-            <div class="flame" id="flame"></div>
-        </div>
-        
-        <button class="interactive-btn" id="startExperience">
-            <i class="fas fa-magic me-2"></i> Clique para Começar
+    <!-- SEÇÃO HERO (Cabeçalho Principal) -->
+    <section class="hero" id="hero">
+        <h1 class="hero-title">Vanessa</h1>
+        <div class="age-badge">19</div>
+        <p class="hero-subtitle">
+            Esta página é uma celebração de você. De cada sorriso, cada momento especial e da pessoa incrível que você é. Que seus 19 anos sejam memoráveis.
+        </p>
+        <button class="cta-button" id="revealMessageBtn">
+            <i class="fas fa-gift"></i> Revelar Mensagem Especial
         </button>
+        <a href="#gallery" class="cta-button" style="margin-top: 1rem; background: transparent; border: 2px solid var(--accent);">
+            <i class="fas fa-images"></i> Ver Nossas Fotos
+        </a>
     </section>
-    
-    <section class="gallery-section container">
-        <h2 class="gallery-title">Fotos Especiais da Vanessa</h2>
-        <p class="text-center mb-5" style="font-size: 1.3rem;">Uma seleção especial de fotos para celebrar seus 19 anos!</p>
-        
-        <div class="photo-gallery">
-            <!-- FOTO 1 -->
-            <div class="photo-item" onclick="openModal('https://i.ibb.co/4ZB7fz2d/IMG-20240625-WA0008.jpg')">
-                <img src="https://i.ibb.co/4ZB7fz2d/IMG-20240625-WA0008.jpg" alt="Vanessa - Foto 1">
-                <div class="photo-caption">Sorriso Encantador</div>
+
+    <!-- GALERIA DE FOTOS -->
+    <section class="gallery-section" id="gallery">
+        <h2 class="section-title">Momentos Especiais</h2>
+        <div class="photo-grid">
+            <!-- Foto 1 -->
+            <div class="photo-card">
+                <img src="https://i.ibb.co/JWTm3J5f/Vanessa1.jpg" alt="Vanessa - Momento especial 1" loading="lazy">
+                <div class="photo-overlay">
+                    <h3>Beleza Única</h3>
+                    <p>Sorriso que ilumina o dia</p>
+                </div>
             </div>
-            
-            <!-- FOTO 2 -->
-            <div class="photo-item" onclick="openModal('https://i.ibb.co/MbT1R3x/IMG-20240625-WA0009.jpg')">
-                <img src="https://i.ibb.co/MbT1R3x/IMG-20240625-WA0009.jpg" alt="Vanessa - Foto 2">
-                <div class="photo-caption">Momento Único</div>
+            <!-- Foto 2 -->
+            <div class="photo-card">
+                <img src="https://i.ibb.co/Nd2VKCJd/vanessa2.jpg" alt="Vanessa - Momento especial 2" loading="lazy">
+                <div class="photo-overlay">
+                    <h3>Estilo Próprio</h3>
+                    <p>Personalidade que encanta</p>
+                </div>
             </div>
-            
-            <!-- FOTO 3 -->
-            <div class="photo-item" onclick="openModal('https://i.ibb.co/dJXWkP18/IMG-20240625-WA0010.jpg')">
-                <img src="https://i.ibb.co/dJXWkP18/IMG-20240625-WA0010.jpg" alt="Vanessa - Foto 3">
-                <div class="photo-caption">Beleza Natural</div>
+            <!-- Foto 3 -->
+            <div class="photo-card">
+                <img src="https://i.ibb.co/d45dzDZ7/Vanessa3.jpg" alt="Vanessa - Momento especial 3" loading="lazy">
+                <div class="photo-overlay">
+                    <h3>Momento Único</h3>
+                    <p>Frame de pura felicidade</p>
+                </div>
             </div>
-            
-            <!-- FOTO 4 -->
-            <div class="photo-item" onclick="openModal('https://i.ibb.co/YFNdfQ5w/IMG-20240625-WA0011.jpg')">
-                <img src="https://i.ibb.co/YFNdfQ5w/IMG-20240625-WA0011.jpg" alt="Vanessa - Foto 4">
-                <div class="photo-caption">Estilo e Personalidade</div>
+            <!-- Foto 4 -->
+            <div class="photo-card">
+                <img src="https://i.ibb.co/WpM53HpT/Vanessa4.jpg" alt="Vanessa - Momento especial 4" loading="lazy">
+                <div class="photo-overlay">
+                    <h3>Essência</h3>
+                    <p>A beleza de ser você</p>
+                </div>
             </div>
-        </div>
-        
-        <div class="text-center mt-5">
-            <button class="interactive-btn" onclick="createFireworks(15)">
-                <i class="fas fa-camera me-2"></i> Celebrar com Fogos!
-            </button>
-            <p class="mt-3">Clique em qualquer foto para ampliá-la</p>
         </div>
     </section>
-    
-    <!-- Modal para visualização de fotos -->
-    <div class="photo-modal" id="photoModal">
-        <span class="close-modal" onclick="closeModal()">&times;</span>
-        <div class="modal-content">
-            <img id="modalImage" src="" alt="Foto ampliada da Vanessa">
-        </div>
-    </div>
-    
-    <!-- Seção Romântica -->
-    <section class="container mt-5 p-4" style="background: rgba(255, 107, 139, 0.1); border-radius: 20px;">
-        <h2 class="text-center mb-4" style="color: var(--romantic-color); font-family: 'Dancing Script', cursive; font-size: 3rem;">
-            <i class="fas fa-heart me-3"></i>Algo especial...
-        </h2>
-        <div class="p-4" style="background: rgba(0,0,0,0.3); border-radius: 15px;">
-            <p class="text-center" style="font-size: 1.4rem; line-height: 1.8;">
-                Vanessa, criar esta página para você foi mais do que uma surpresa de aniversário.<br>
-                Foi uma forma de expressar o quanto valorizo cada momento que compartilhamos.<br><br>
-                <span style="color: var(--gold-color); font-weight: bold; font-size: 1.6rem;">
-                    E se dependesse de mim... serias a minha namorada.
-                </span><br><br>
-                Mas hoje é o SEU dia, e o que importa é celebrar você!<br>
-                Feliz 19 anos, que seja um ano incrível!
+
+    <!-- SEÇÃO DA MENSAGEM SECRETA -->
+    <section class="message-section" id="message">
+        <div class="message-container">
+            <div class="message-icon">
+                <i class="fas fa-lock-open"></i>
+            </div>
+            <h2 class="section-title" style="font-size: 2.5rem;">Para Você, Vanessa</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #CCD6F6;">
+                Criar esta página foi minha forma de celebrar você. Cada detalhe representa a admiração e o carinho que sinto.
+            </p>
+            <div class="secret-message" id="secretMessage">
+                E se dependesse de mim... serias a minha namorada. 💖
+            </div>
+            <p style="margin-top: 2rem; font-style: italic; color: #8892B0;">
+                Feliz 19 anos! Que a vida te reserve os melhores capítulos, e que eu possa, quem sabe, fazer parte dessa história.
             </p>
         </div>
     </section>
-    
-    <footer class="footer container">
-        <p>Feito com <i class="fas fa-heart mx-1" style="color: var(--romantic-color);"></i> especialmente para Vanessa - Feliz 19 Anos!</p>
-        <p class="mt-2">Que seus 19 anos sejam tão brilhantes e especiais quanto você é.</p>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+        <p>
+            Feito com <span class="footer-heart">❤️</span> especialmente para você, Vanessa.<br>
+            <span style="display: block; margin-top: 0.5rem; font-size: 0.85rem;">
+                2026 · Uma celebração digital para marcar seus 19 anos
+            </span>
+        </p>
     </footer>
 
+    <!-- SCRIPTS PARA INTERATIVIDADE -->
     <script>
-        // Criar corações flutuantes
-        function createHearts() {
-            const heartsContainer = document.getElementById('hearts-container');
-            const heartCount = 40;
+        // Revelar a mensagem secreta com animação
+        document.getElementById('revealMessageBtn').addEventListener('click', function() {
+            const message = document.getElementById('secretMessage');
+            message.classList.add('revealed');
             
-            for (let i = 0; i < heartCount; i++) {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.innerHTML = '<i class="fas fa-heart"></i>';
-                
-                // Posição aleatória
-                const left = Math.random() * 100;
-                const top = Math.random() * 100;
-                const delay = Math.random() * 5;
-                const duration = 3 + Math.random() * 4;
-                const size = 15 + Math.random() * 25;
-                const colors = ['#ff6b8b', '#ff4081', '#6a5af9', '#4ecdc4', '#ffd700', '#9c27b0'];
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                
-                heart.style.left = `${left}%`;
-                heart.style.top = `${top}%`;
-                heart.style.fontSize = `${size}px`;
-                heart.style.color = color;
-                heart.style.animationDelay = `${delay}s`;
-                heart.style.animationDuration = `${duration}s`;
-                
-                heartsContainer.appendChild(heart);
-            }
-        }
-        
-        // Funções para o modal de fotos
-        function openModal(imageSrc) {
-            const modal = document.getElementById('photoModal');
-            const modalImage = document.getElementById('modalImage');
-            modalImage.src = imageSrc;
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeModal() {
-            const modal = document.getElementById('photoModal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        
-        // Fechar modal ao clicar fora da imagem
-        document.getElementById('photoModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
+            // Criar efeito de confete
+            createConfetti();
+            
+            // Rolar suavemente até a mensagem
+            document.getElementById('message').scrollIntoView({ behavior: 'smooth' });
+            
+            // Mudar o texto do botão
+            this.innerHTML = '<i class="fas fa-heart"></i> Mensagem Revelada!';
+            this.style.background = 'linear-gradient(135deg, var(--gold), var(--accent))';
+            this.disabled = true;
         });
-        
-        // Iniciar experiência
-        document.getElementById('startExperience').addEventListener('click', function() {
-            this.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Celebração Iniciada!';
-            this.style.background = 'linear-gradient(135deg, #9c27b0, #e91e63)';
-            
-            // Animar o bolo de aniversário
-            const flame = document.getElementById('flame');
-            flame.style.animation = 'flicker 0.3s infinite alternate';
-            
-            // Criar fogos de artifício
-            createFireworks(20);
-            
-            // Rolar suavemente para a galeria
-            setTimeout(() => {
-                document.querySelector('.gallery-section').scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
+
+        // Efeito de confete
+        function createConfetti() {
+            const colors = ['#FF6B8B', '#6A5AF9', '#4ECDC4', '#FFD166'];
+            const confettiCount = 150;
+
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'fixed';
+                confetti.style.width = '10px';
+                confetti.style.height = '10px';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = '-20px';
+                confetti.style.opacity = '0.9';
+                confetti.style.zIndex = '9999';
+                confetti.style.pointerEvents = 'none';
+
+                document.body.appendChild(confetti);
+
+                // Animação
+                const animation = confetti.animate([
+                    { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                    { transform: `translateY(${window.innerHeight + 20}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                ], {
+                    duration: 2000 + Math.random() * 3000,
+                    easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
                 });
-            }, 1000);
-        });
-        
-        // Criar fogos de artifício
-        function createFireworks(count) {
-            for (let i = 0; i < count; i++) {
-                setTimeout(() => {
-                    const firework = document.createElement('div');
-                    firework.style.position = 'fixed';
-                    firework.style.width = '5px';
-                    firework.style.height = '5px';
-                    firework.style.borderRadius = '50%';
-                    firework.style.backgroundColor = ['#ff6b8b', '#6a5af9', '#4ecdc4', '#ff4081', '#9c27b0'][Math.floor(Math.random() * 5)];
-                    firework.style.left = `${Math.random() * window.innerWidth}px`;
-                    firework.style.top = `${Math.random() * window.innerHeight}px`;
-                    firework.style.zIndex = '1000';
-                    firework.style.pointerEvents = 'none';
-                    
-                    document.body.appendChild(firework);
-                    
-                    // Animação
-                    firework.animate([
-                        { transform: 'scale(1)', opacity: 1 },
-                        { transform: 'scale(40)', opacity: 0 }
-                    ], { duration: 1000 });
-                    
-                    setTimeout(() => firework.remove(), 1000);
-                }, i * 100);
+
+                // Remover após animação
+                animation.onfinish = () => confetti.remove();
             }
         }
-        
-        // Inicializar a página
+
+        // Efeito de digitação no título (opcional)
         document.addEventListener('DOMContentLoaded', function() {
-            createHearts();
-            
-            // Efeito de digitação no subtítulo
-            const subtitle = document.querySelector('.hero-subtitle');
-            const originalText = subtitle.textContent;
-            subtitle.textContent = '';
-            
-            let i = 0;
-            const speed = 40;
-            
-            function typeWriter() {
-                if (i < originalText.length) {
-                    subtitle.textContent += originalText.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, speed);
-                }
+            // Adicionar corações flutuantes no fundo
+            for (let i = 0; i < 20; i++) {
+                createFloatingHeart();
             }
-            
-            setTimeout(typeWriter, 1000);
         });
+
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.style.position = 'fixed';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '100vh';
+            heart.style.fontSize = (15 + Math.random() * 25) + 'px';
+            heart.style.opacity = '0.1';
+            heart.style.color = '#FF6B8B';
+            heart.style.zIndex = '-1';
+            heart.style.pointerEvents = 'none';
+            
+            document.body.appendChild(heart);
+            
+            // Animação
+            heart.animate([
+                { transform: 'translateY(0) rotate(0deg)', opacity: 0.1 },
+                { transform: `translateY(-${window.innerHeight + 100}px) rotate(${360 + Math.random() * 360}deg)`, opacity: 0 }
+            ], {
+                duration: 8000 + Math.random() * 12000,
+                easing: 'linear'
+            });
+            
+            setTimeout(() => heart.remove(), 20000);
+        }
     </script>
 </body>
 </html>
